@@ -1,7 +1,14 @@
+import NewTask from "./components/NewTask.jsx";
+import NoTaskSelected from "./components/NoTaskSelected.jsx";
+import TaskSidebar from "./components/TaskSidebar.jsx";
+
 function App() {
   return (
     <>
-      <h1 className="my-8 text-center text-5xl font-bold">Eat Sleep Game</h1>
+      <main className="h-screen my-8 flex gap-8">
+        <TaskSidebar />
+        <NoTaskSelected />
+      </main>
     </>
   );
 }
