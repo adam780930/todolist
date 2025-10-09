@@ -19,6 +19,15 @@ function App() {
     });
   }
 
+  function handleCancelAddTask() {
+    setTasksState((prevState) => {
+      return {
+        ...prevState,
+        selectedTaskId: undefined,
+      };
+    });
+  }
+
   function handleAddTask(taskData) {
     setTasksState((prevState) => {
       const taskId = Math.random();
@@ -38,7 +47,7 @@ function App() {
   let content;
 
   if (tasksState.selectedTaskId === null) {
-    content = <NewTask onAdd={handleAddTask} />;
+    content = <NewTask onAdd={handleAddTask} onCancel={handleCancelAddTask} />;
   } else if (tasksState.selectedTaskId === undefined) {
     content = <NoTaskSelected onStartAddTask={handleStartAddTask} />;
   }
