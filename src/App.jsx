@@ -54,11 +54,23 @@ function App() {
     });
   }
 
+  function handleDeleteTask() {
+    setTasksState((prevState) => {
+      return {
+        ...prevState,
+        selectedTaskId: undefined,
+        tasks: prevState.tasks.filter(
+          (task) => task.id !== prevState.selectedTaskId
+        ),
+      };
+    });
+  }
+
   const selectedTask = tasksState.tasks.find(
     (task) => task.id === tasksState.selectedTaskId
   );
 
-  let content = <SelectedTask task={selectedTask} />;
+  let content = <SelectedTask task={selectedTask} onDelete={handleDeleteTask}/>;
 
   if (tasksState.selectedTaskId === null) {
     content = <NewTask onAdd={handleAddTask} onCancel={handleCancelAddTask} />;

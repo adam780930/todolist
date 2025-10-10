@@ -1,4 +1,4 @@
-export default function SelectedTask({ task }) {
+export default function SelectedTask({ task, onDelete }) {
   const formattedDate = new Date(task.dueDate).toLocaleDateString("en-US", {
     year: "numeric",
     month: "short",
@@ -12,7 +12,10 @@ export default function SelectedTask({ task }) {
           <h1 className="text-3xl font-bold text-stone-600 mb-2">
             {task.title}
           </h1>
-          <button className="text-stone-600 hover:text-stone-950">
+          <button
+            className="text-stone-600 hover:text-stone-950"
+            onClick={onDelete}
+          >
             Delete
           </button>
         </div>
