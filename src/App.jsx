@@ -9,7 +9,26 @@ function App() {
   const [tasksState, setTasksState] = useState({
     selectedTaskId: undefined,
     tasks: [],
+    details: [],
   });
+
+  function handleAddDetail(text) {
+    setTasksState((prevState) => {
+      const detailId = Math.random();
+      const newDetail = {
+        text: text,
+        taskId: prevState.selectedTaskId,
+        id: detailId,
+      };
+
+      return {
+        ...prevState,
+        details: [newDetail, ...prevState.details]
+      };
+    });
+  }
+
+  function handleDeleteDetail() {}
 
   function handleSelectTask(id) {
     setTasksState((prevState) => {
@@ -70,7 +89,15 @@ function App() {
     (task) => task.id === tasksState.selectedTaskId
   );
 
-  let content = <SelectedTask task={selectedTask} onDelete={handleDeleteTask}/>;
+  let content = (
+    <SelectedTask
+      task={selectedTask}
+      onDelete={handleDeleteTask}
+      onAddDetail={handleAddDetail}
+      onDeleteDetail={handleDeleteDetail}
+      details={tasksState.details}
+    />
+  );
 
   if (tasksState.selectedTaskId === null) {
     content = <NewTask onAdd={handleAddTask} onCancel={handleCancelAddTask} />;

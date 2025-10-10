@@ -1,4 +1,12 @@
-export default function SelectedTask({ task, onDelete }) {
+import Tasks from "./Tasks.jsx";
+
+export default function SelectedTask({
+  task,
+  onDelete,
+  onAddDetail,
+  onDeleteDetail,
+  details,
+}) {
   const formattedDate = new Date(task.dueDate).toLocaleDateString("en-US", {
     year: "numeric",
     month: "short",
@@ -22,6 +30,7 @@ export default function SelectedTask({ task, onDelete }) {
         <p className="mb-4 text-stone-400">{formattedDate}</p>
         <p className="text-stone-600 whitespace-pre-wrap">{task.description}</p>
       </header>
+      <Tasks onAdd={onAddDetail} onDelete={onDeleteDetail} details={details} />
     </div>
   );
 }
