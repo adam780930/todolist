@@ -9,7 +9,7 @@ function App() {
   const [tasksState, setTasksState] = useState({
     selectedTaskId: undefined,
     tasks: [],
-    details: [],
+    details: [], //the same list of details are showing between different tasks
   });
 
   function handleAddDetail(text) {
