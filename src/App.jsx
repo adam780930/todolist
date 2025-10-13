@@ -23,12 +23,19 @@ function App() {
 
       return {
         ...prevState,
-        details: [newDetail, ...prevState.details]
+        details: [newDetail, ...prevState.details],
       };
     });
   }
 
-  function handleDeleteDetail() {}
+  function handleDeleteDetail(id) {
+    setTasksState((prevState) => {
+      return {
+        ...prevState,
+        details: prevState.details.filter((detail) => detail.id !== id),
+      };
+    });
+  }
 
   function handleSelectTask(id) {
     setTasksState((prevState) => {
@@ -111,6 +118,7 @@ function App() {
         onStartAddTask={handleStartAddTask}
         tasks={tasksState.tasks}
         onSelectTask={handleSelectTask}
+        selectedTaskId={tasksState.selectedTaskId}
       />
       {content}
     </main>
