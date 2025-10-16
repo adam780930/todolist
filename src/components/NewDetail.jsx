@@ -7,7 +7,7 @@ export default function NewDetail({ onAdd }) {
     setEnteredDetail(e.target.value);
   }
 
-  function handleClick() {
+  function handleDetailSubmit() {
     if (enteredDetail.trim() === "") {
       return;
     }
@@ -22,10 +22,15 @@ export default function NewDetail({ onAdd }) {
         className="w-64 px-2 py-1 rounded-sm bg-stone-200"
         onChange={handleChange}
         value={enteredDetail}
+        onKeyUp={(event) => {
+          if (event.key === "Enter") {
+            handleDetailSubmit();
+          }
+        }}
       />
       <button
         className="text-stone-700 hover:text-stone-950"
-        onClick={handleClick}
+        onClick={handleDetailSubmit}
       >
         Add Detail
       </button>
