@@ -14,10 +14,10 @@ export default function Tasks({ details, onAdd, onDelete }) {
       {details.length > 0 && (
         <ul className="p-4 mt-8 rounded-md bg-stone-100">
           {details.map((detail) => (
-            <li key={detail.id} className="flex justify-between my-4">
+            <li key={detail.id} className="flex justify-between my-2"> 
               <span>{detail.text}</span>
               <button
-                className="text-stone-700 hover:text-red-500"
+                className="text-stone-800 hover:text-red-500 ml-4"
                 onClick={() => onDelete(detail.id)}
               >
                 Clear

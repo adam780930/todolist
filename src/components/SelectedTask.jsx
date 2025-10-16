@@ -14,7 +14,7 @@ export default function SelectedTask({
   });
 
   return (
-    <div className="w-[35rem] mt-16">
+    <div className="w-1/2 md:w-auto mt-16 mx-16">
       <header className="pb-4 mb-4 border-b-2 border-stone-300">
         <div className="flex item-center justify-between">
           <h1 className="text-3xl font-bold text-stone-600 mb-2">
