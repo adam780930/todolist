@@ -120,7 +120,7 @@ function App() {
         onSelectTask={handleSelectTask}
         selectedTaskId={tasksState.selectedTaskId}
       />
-      {content}
+      <div className="w-screen">{content}</div>
     </main>
   );
 }
